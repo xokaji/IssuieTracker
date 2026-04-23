@@ -37,5 +37,4 @@ A production grade issue tracker built with React + TypeScript, Express.js, and 
 - **Export** — Download all filtered issues as CSV or JSON
 - **Reusable Components** — Badges, Modal, ConfirmDialog, Spinner, Pagination, etc.
 
----
-# IssuieTracker
+
