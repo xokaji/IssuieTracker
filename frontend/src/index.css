@@ -1,0 +1,159 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg: #f7fbfd;
+    --bg-muted: #edf5f9;
+    --surface: #ffffff;
+    --surface-muted: #f8fbfd;
+    --text: #0f172a;
+    --text-muted: #475569;
+    --border: #d6e4ec;
+    --ring: rgba(21, 107, 198, 0.24);
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  html,
+  body,
+  #root {
+    min-height: 100%;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    background:
+      radial-gradient(900px 500px at 20% -15%, rgba(21, 107, 198, 0.08), transparent 70%),
+      radial-gradient(700px 420px at 100% 0%, rgba(31, 148, 193, 0.08), transparent 65%),
+      var(--bg);
+    color: var(--text);
+    font-family: 'Manrope', ui-sans-serif, 'Segoe UI', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::selection {
+    background: rgba(21, 107, 198, 0.14);
+    color: #0f172a;
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #c8d7e3;
+    border-radius: 99px;
+    border: 2px solid transparent;
+    background-clip: content-box;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #adbfd0;
+    border: 2px solid transparent;
+    background-clip: content-box;
+  }
+}
+
+@layer components {
+  .surface {
+    @apply rounded-2xl border bg-white;
+    border-color: var(--border);
+    box-shadow: 0 1px 2px rgba(15, 23, 42, 0.06), 0 10px 24px rgba(15, 23, 42, 0.08);
+  }
+
+  .surface-muted {
+    @apply rounded-2xl border;
+    border-color: var(--border);
+    background: var(--surface-muted);
+  }
+
+  .card {
+    @apply surface p-5;
+  }
+
+  .page-shell {
+    @apply animate-fade-in space-y-6;
+  }
+
+  .page-header {
+    @apply flex flex-col gap-4 md:flex-row md:items-start md:justify-between;
+  }
+
+  .page-title {
+    @apply text-2xl font-extrabold tracking-tight text-slate-900;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl border px-4 py-2.5 text-sm font-semibold text-white transition-all;
+    border-color: #1258a4;
+    background: linear-gradient(135deg, #156bc6, #1f94c1);
+  }
+
+  .btn-primary:hover {
+    filter: brightness(0.97);
+  }
+
+  .btn-primary:disabled {
+    @apply cursor-not-allowed opacity-60;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl border bg-white px-4 py-2.5 text-sm font-semibold text-slate-700 transition-colors hover:bg-slate-50;
+    border-color: var(--border);
+  }
+
+  .btn-secondary:disabled {
+    @apply cursor-not-allowed opacity-60;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg px-3 py-2 text-sm font-medium text-slate-600 transition-colors hover:bg-slate-100 hover:text-slate-900;
+  }
+
+  .btn-danger {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl border border-red-200 bg-red-50 px-4 py-2.5 text-sm font-semibold text-red-700 transition-colors hover:bg-red-100;
+  }
+
+  .label {
+    @apply mb-1.5 block text-sm font-semibold text-slate-700;
+  }
+
+  .input,
+  .select,
+  .textarea {
+    @apply w-full rounded-xl border bg-white px-3.5 py-2.5 text-sm text-slate-900 placeholder:text-slate-400 transition-all;
+    border-color: var(--border);
+  }
+
+  .input:focus,
+  .select:focus,
+  .textarea:focus {
+    @apply outline-none ring-2;
+    border-color: #80b7e6;
+    --tw-ring-color: var(--ring);
+  }
+
+  .select {
+    @apply cursor-pointer;
+  }
+
+  .empty-state {
+    @apply surface p-10 text-center;
+  }
+}
